@@ -36,10 +36,10 @@ if not AGENTVERSE_API_KEY:
 # Initialize agent
 agent = Agent(
     name="voting_agent",
-    port=8081,
+    port=8080,
     seed="voting agent seed",
     mailbox=True,
-    endpoint=["http://localhost:8081/submit"]
+    endpoint=["http://localhost:8080/submit"]
 )
 
 # REST API Models
@@ -92,8 +92,8 @@ async def startup_handler(ctx: Context):
     ctx.logger.info(f"Voting Agent started with address: {ctx.agent.address}")
     ctx.logger.info("Agent is ready to create voting questions based on negative feedback!")
     ctx.logger.info("REST API endpoints available:")
-    ctx.logger.info("- POST http://localhost:8081/voting")
-    ctx.logger.info("- POST http://localhost:8081/brand/negative-data")
+    ctx.logger.info("- POST http://localhost:8080/voting")
+    ctx.logger.info("- POST http://localhost:8080/brand/negative-data")
 
 # Chat Protocol Handlers
 @chat_proto.on_message(ChatMessage)
@@ -232,10 +232,10 @@ if __name__ == '__main__':
     print("📡 Ready to create voting questions based on negative feedback from Knowledge Graph")
     print("🧠 Powered by ASI:One AI reasoning and MeTTa Knowledge Graph")
     print("\n🌐 REST API Endpoints:")
-    print("POST http://localhost:8081/voting")
+    print("POST http://localhost:8080/voting")
     print("Body: {\"brand_name\": \"iPhone\"}")
     print("Returns: Single voting question based on negative feedback")
-    print("\nPOST http://localhost:8081/brand/negative-data")
+    print("\nPOST http://localhost:8080/brand/negative-data")
     print("Body: {\"brand_name\": \"iPhone\"}")
     print("Returns: Raw negative data (reviews, reddit, social)")
     print("\n🧪 Test queries:")
