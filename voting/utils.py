@@ -1,4 +1,5 @@
 import json
+from typing import Dict, List
 from openai import OpenAI
 from .votingrag import VotingRAG
 
